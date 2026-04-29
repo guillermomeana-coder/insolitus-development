@@ -2,36 +2,37 @@ import { MongoClient, Db } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
 
-if (!uri) {
-  throw new Error('Please define the MONGODB_URI environment variable');
-}
-
 const options = {};
 
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+let clientPromise: Promise<MongoClient> | null = null;
 
 declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-if (process.env.NODE_ENV === 'development') {
-  if (!global._mongoClientPromise) {
-    client = new MongoClient(uri, options);
-    global._mongoClientPromise = client.connect();
+if (uri) {
+  if (process.env.NODE_ENV === 'development') {
+    if (!global._mongoClientPromise) {
+      const client = new MongoClient(uri, options);
+      global._mongoClientPromise = client.connect();
+    }
+    clientPromise = global._mongoClientPromise;
+  } else {
+    const client = new MongoClient(uri, options);
+    clientPromise = client.connect();
   }
-  clientPromise = global._mongoClientPromise;
-} else {
-  client = new MongoClient(uri, options);
-  clientPromise = client.connect();
 }
 
 export async function getDatabase(): Promise<Db> {
+  if (!clientPromise) {
+    throw new Error('MongoDB not configured. Set MONGODB_URI environment variable.');
+  }
   const client = await clientPromise;
   return client.db(process.env.DB_NAME || 'insolitus');
 }
 
 export async function checkConnection(): Promise<boolean> {
+  if (!clientPromise) return false;
   try {
     const client = await clientPromise;
     await client.db().admin().ping();
@@ -41,4 +42,4 @@ export async function checkConnection(): Promise<boolean> {
   }
 }
 
-export default clientPromise;
+export { clientPromise };
