@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { Compass, Ruler, Hammer, RefreshCw, FileCheck } from 'lucide-react';
+import { PenTool, ClipboardList, Building2, Paintbrush, ShieldCheck } from 'lucide-react';
 
 interface ServicesProps {
   dictionary: {
@@ -33,11 +33,11 @@ const staggerContainer: Variants = {
 };
 
 const services = [
-  { key: 'design', icon: Compass },
-  { key: 'project', icon: Ruler },
-  { key: 'construction', icon: Hammer },
-  { key: 'renovations', icon: RefreshCw },
-  { key: 'permits', icon: FileCheck },
+  { key: 'design', icon: PenTool },
+  { key: 'project', icon: ClipboardList },
+  { key: 'construction', icon: Building2 },
+  { key: 'renovations', icon: Paintbrush },
+  { key: 'permits', icon: ShieldCheck },
 ] as const;
 
 export default function Services({ dictionary }: ServicesProps) {
