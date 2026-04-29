@@ -38,17 +38,17 @@ const partners = [
   {
     key: 'alonso',
     roleKey: 'construction',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+    image: '/images/logos/ginax.png',
   },
   {
     key: 'manu',
     roleKey: 'design',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    image: '/images/team/maria-ponte.jpeg',
   },
   {
     key: 'rodrigo',
     roleKey: 'visionary',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+    image: '/images/team/rodrigo-caldeira.jpeg',
   },
 ] as const;
 

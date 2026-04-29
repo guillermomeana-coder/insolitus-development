@@ -59,7 +59,7 @@ export default function Hero({ dictionary }: HeroProps) {
         }}
       >
         <img
-          src="https://images.pexels.com/photos/12848727/pexels-photo-12848727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          src="/images/hero-bg.jpg"
           alt="Los Cabos coastline"
           className="w-full h-full object-cover"
         />

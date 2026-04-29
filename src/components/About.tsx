@@ -45,7 +45,7 @@ export default function About({ dictionary }: AboutProps) {
             className="relative"
           >
             <img
-              src="https://images.unsplash.com/photo-1746205930744-928d84e315aa?crop=entropy&cs=srgb&fm=jpg&q=85"
+              src="/images/about-landscape.jpg"
               alt="Baja California landscape"
               className="w-full h-[400px] md:h-[500px] object-cover"
             />
