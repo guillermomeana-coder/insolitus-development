@@ -5,6 +5,7 @@ export interface Project {
   description_en: string;
   description_es: string;
   image: string;
+  gallery: string[];
   externalLink: string | null;
   order: number;
 }
@@ -17,6 +18,14 @@ export const projects: Project[] = [
     description_en: "Luxury Residential Development",
     description_es: "Desarrollo Residencial de Lujo",
     image: "/images/projects/amate-9-palms.jpg",
+    gallery: [
+      "/images/projects/amate-9-palms.jpg",
+      "/images/projects/amate-gallery/01.jpg",
+      "/images/projects/amate-gallery/02.jpg",
+      "/images/projects/amate-gallery/03.jpg",
+      "/images/projects/amate-gallery/04.jpg",
+      "/images/projects/amate-gallery/05.jpg",
+    ],
     externalLink: "https://amate9palms.com/en/",
     order: 1,
   },
@@ -27,6 +36,13 @@ export const projects: Project[] = [
     description_en: "Oceanfront Estate",
     description_es: "Propiedad Frente al Mar",
     image: "/images/projects/punta-perfecta.webp",
+    gallery: [
+      "/images/projects/punta-perfecta.webp",
+      "/images/projects/punta-gallery/01.webp",
+      "/images/projects/punta-gallery/02.webp",
+      "/images/projects/punta-gallery/03.webp",
+      "/images/projects/punta-gallery/04.webp",
+    ],
     externalLink: null,
     order: 2,
   },
@@ -37,6 +53,7 @@ export const projects: Project[] = [
     description_en: "Boutique Villa Project",
     description_es: "Proyecto de Villa Boutique",
     image: "https://images.unsplash.com/photo-1530491396055-5aca4203edbf?crop=entropy&cs=srgb&fm=jpg&q=85",
+    gallery: [],
     externalLink: null,
     order: 3,
   },
@@ -47,6 +64,13 @@ export const projects: Project[] = [
     description_en: "Private Residence",
     description_es: "Residencia Privada",
     image: "/images/projects/el-cielo.jpg",
+    gallery: [
+      "/images/projects/el-cielo.jpg",
+      "/images/projects/cielo-gallery/01.jpg",
+      "/images/projects/cielo-gallery/02.jpg",
+      "/images/projects/cielo-gallery/03.jpg",
+      "/images/projects/cielo-gallery/04.jpg",
+    ],
     externalLink: null,
     order: 4,
   },
@@ -57,6 +81,14 @@ export const projects: Project[] = [
     description_en: "Luxury Hospitality",
     description_es: "Hospitalidad de Lujo",
     image: "/images/projects/rosewood-la-mandarina.jpg",
+    gallery: [
+      "/images/projects/rosewood-la-mandarina.jpg",
+      "/images/projects/rosewood-gallery/01.jpg",
+      "/images/projects/rosewood-gallery/02.jpg",
+      "/images/projects/rosewood-gallery/03.jpg",
+      "/images/projects/rosewood-gallery/04.jpg",
+      "/images/projects/rosewood-gallery/05.jpg",
+    ],
     externalLink: null,
     order: 5,
   },

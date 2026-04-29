@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
-import { projects } from '@/data/projects';
+import { projects, Project } from '@/data/projects';
 import { Locale } from '@/lib/i18n';
+import ProjectGallery from './ProjectGallery';
 
 interface ProjectsProps {
   locale: Locale;
@@ -35,11 +36,13 @@ const ProjectCard = ({
   locale,
   viewProjectText,
   isLarge = false,
+  onOpenGallery,
 }: {
   project: typeof projects[0];
   locale: Locale;
   viewProjectText: string;
   isLarge?: boolean;
+  onOpenGallery?: () => void;
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -58,6 +61,7 @@ const ProjectCard = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onOpenGallery}
     >
       <div
         className={`relative overflow-hidden bg-[#1A2530] ${isLarge ? 'h-full min-h-[400px] lg:min-h-full' : 'h-[280px]'}`}
@@ -122,46 +126,60 @@ const ProjectCard = ({
 };
 
 export default function Projects({ locale, dictionary }: ProjectsProps) {
+  const [galleryProject, setGalleryProject] = useState<Project | null>(null);
+
   return (
-    <section id="projects" className="py-24 md:py-32 bg-[#EBE6DF]">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="mb-16"
-        >
-          <p className="overline mb-4">{dictionary.nav.projects}</p>
-          <h2 className="font-heading text-3xl md:text-4xl text-[#1A2530] font-medium">
-            {dictionary.projects.headline}
-          </h2>
-        </motion.div>
+    <>
+      <section id="projects" className="py-24 md:py-32 bg-[#EBE6DF]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="mb-16"
+          >
+            <p className="overline mb-4">{dictionary.nav.projects}</p>
+            <h2 className="font-heading text-3xl md:text-4xl text-[#1A2530] font-medium">
+              {dictionary.projects.headline}
+            </h2>
+          </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <ProjectCard
-            project={projects[0]}
-            locale={locale}
-            viewProjectText={dictionary.projects.viewProject}
-            isLarge={true}
-          />
-
-          {projects.slice(1).map((project) => (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             <ProjectCard
-              key={project.id}
-              project={project}
+              project={projects[0]}
               locale={locale}
               viewProjectText={dictionary.projects.viewProject}
+              isLarge={true}
+              onOpenGallery={() => projects[0].gallery.length > 0 && setGalleryProject(projects[0])}
             />
-          ))}
-        </motion.div>
-      </div>
-    </section>
+
+            {projects.slice(1).map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                locale={locale}
+                viewProjectText={dictionary.projects.viewProject}
+                onOpenGallery={() => project.gallery.length > 0 && setGalleryProject(project)}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {galleryProject && (
+        <ProjectGallery
+          project={galleryProject}
+          locale={locale}
+          onClose={() => setGalleryProject(null)}
+        />
+      )}
+    </>
   );
 }
