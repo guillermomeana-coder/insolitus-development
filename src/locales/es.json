@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Insolitus Development — Desarrollo Boutique en Los Cabos",
+    "description": "Empresa boutique de desarrollo local que facilita el diseño y la construcción en Los Cabos, México."
+  },
+  "nav": {
+    "about": "Nosotros",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "partners": "Socios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tagline": "Donde la Visión se Encuentra con el Desierto y el Mar",
+    "subtitle": "Empresa Boutique de Desarrollo en Los Cabos, México",
+    "cta": "Conoce Nuestros Proyectos"
+  },
+  "about": {
+    "headline": "Desarrollo a Medida, Verticalmente Integrado",
+    "body": "Insolitus es una empresa boutique de desarrollo local que facilita el diseño y la construcción en Los Cabos, México. Nuestra integración vertical genera una importante ventaja competitiva — mejor comunicación, administración simplificada, cooperación mejorada y toma de decisiones ágil. A través de nuestro equipo multidisciplinario, llevamos a cabo cada aspecto de un proyecto de diseño o construcción de manera interna. Un enfoque de hospitalidad de lujo a medida permite a nuestros clientes disfrutar realmente del proceso de hacer realidad su visión."
+  },
+  "projects": {
+    "headline": "Proyectos Destacados",
+    "viewProject": "Ver Proyecto"
+  },
+  "services": {
+    "headline": "Servicios",
+    "items": {
+      "design": "Gestión de Diseño",
+      "project": "Gestión de Proyectos",
+      "construction": "Gestión de Construcción",
+      "renovations": "Renovaciones",
+      "permits": "Rezonificación, Permisos, Licencias y Aprobaciones de Impacto Ecológico"
+    }
+  },
+  "partners": {
+    "headline": "Socios",
+    "roles": {
+      "construction": "Director de Construcción",
+      "design": "Directora de Diseño",
+      "visionary": "Visionario"
+    },
+    "team": {
+      "alonso": {
+        "name": "Alonso Ramírez",
+        "role": "Líder y Dueño de Ginax",
+        "bio": "Más de 20 años de trayectoria exitosa en construcción en Los Cabos. Con una reputación impecable, Alonso ha liderado Ginax sirviendo al mercado de residencias privadas de lujo y hospitalidad en Los Cabos y Puerto Vallarta."
+      },
+      "manu": {
+        "name": "María Manuel Ponte",
+        "role": "Arquitecta de Diseño",
+        "bio": "Graduada de la Faculdade de Arquitectura, Universidade de Coimbra, Portugal. El estilo contemporáneo de Manu fusiona materiales locales naturales con prácticas sustentables. Su trabajo integra la arquitectura con su entorno, inspirándose en tradiciones vernáculas e incorporando soluciones modernas — creando espacios ambientalmente responsivos y profundamente conectados con la cultura local."
+      },
+      "rodrigo": {
+        "name": "Rodrigo Caldeira",
+        "role": "Hotelero y Desarrollador Inmobiliario",
+        "bio": "Nacido en Río de Janeiro, criado en Porto, Portugal. Egresado de la École Hôtelière de Lausanne, Suiza. Un líder orientado a resultados con talento para construir equipos de alto rendimiento. Su combinación única de experiencia en resorts de lujo y desarrollo inmobiliario se traduce en una ventaja competitiva inigualable. Con visión financiera y habilidad para analizar tendencias y adaptarse proactivamente a las demandas del mercado."
+      }
+    }
+  },
+  "contact": {
+    "headline": "Contacto",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "send": "Enviar",
+      "sending": "Enviando..."
+    },
+    "success": "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+    "error": "Error al enviar el mensaje. Por favor intenta de nuevo."
+  },
+  "footer": {
+    "rights": "© 2026 Insolitus Development",
+    "location": "Los Cabos, México"
+  }
+}

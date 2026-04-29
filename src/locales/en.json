@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Insolitus Development — Boutique Development in Los Cabos",
+    "description": "A boutique local development company facilitating design & construction in Los Cabos, Mexico."
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "services": "Services",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Where Vision Meets the Desert & Sea",
+    "subtitle": "A Boutique Development Company in Los Cabos, Mexico",
+    "cta": "Explore Our Work"
+  },
+  "about": {
+    "headline": "Bespoke Development, Vertically Integrated",
+    "body": "Insolitus is a boutique local development company facilitating design & construction in Los Cabos, Mexico. Our vertical integration generates an important competitive advantage — improved communication, simplified administration, enhanced cooperation and streamlined decision-making. Through our multi-disciplinary team we carry out every aspect of a design or construction project in-house. A bespoke luxury hospitality approach enables our clients to actually enjoy the process of bringing their dream vision into reality."
+  },
+  "projects": {
+    "headline": "Selected Projects",
+    "viewProject": "View Project"
+  },
+  "services": {
+    "headline": "Services",
+    "items": {
+      "design": "Design Management",
+      "project": "Project Management",
+      "construction": "Construction Management",
+      "renovations": "Renovations",
+      "permits": "Re-Zoning, Permitting, Licensing & Ecological Impact Approvals"
+    }
+  },
+  "partners": {
+    "headline": "Partners",
+    "roles": {
+      "construction": "Head of Construction",
+      "design": "Head of Design",
+      "visionary": "Visionary"
+    },
+    "team": {
+      "alonso": {
+        "name": "Alonso Ramírez",
+        "role": "Leader & Owner of Ginax",
+        "bio": "20+ years successful construction track record in Los Cabos. With an impeccable reputation, Alonso has led Ginax serving the luxury private residences & hospitality markets in Los Cabos and Puerto Vallarta."
+      },
+      "manu": {
+        "name": "María Manuel Ponte",
+        "role": "Design Architect",
+        "bio": "Graduated from Faculdade de Arquitectura, Universidade de Coimbra, Portugal. Manu's contemporary style blends natural local materials with sustainable practices. Her work integrates architecture with its surrounding environment, drawing from vernacular traditions while incorporating modern solutions — creating spaces that are environmentally responsive and deeply connected to local culture."
+      },
+      "rodrigo": {
+        "name": "Rodrigo Caldeira",
+        "role": "Hotelier & Real Estate Developer",
+        "bio": "Born in Rio de Janeiro, raised in Porto, Portugal. Alumni of École Hôtelière de Lausanne, Switzerland. A results-driven leader with a talent for building high-performance teams. His unique combination of luxury resort experience and real estate development is an unfair competitive advantage. Finance-savvy and adept at trend analysis to adapt proactively to market demands."
+      }
+    }
+  },
+  "contact": {
+    "headline": "Contact",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending..."
+    },
+    "success": "Message sent successfully! We'll be in touch soon.",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "rights": "© 2026 Insolitus Development",
+    "location": "Los Cabos, Mexico"
+  }
+}
