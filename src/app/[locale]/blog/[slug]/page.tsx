@@ -42,6 +42,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function parseInline(text: string): ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
 function renderContent(content: string): ReactNode[] {
   const lines = content.split('\n');
   const elements: ReactNode[] = [];
@@ -54,18 +64,12 @@ function renderContent(content: string): ReactNode[] {
           {line.replace('## ', '')}
         </h2>
       );
-    } else if (line.startsWith('**') && line.endsWith('**')) {
-      elements.push(
-        <p key={key++} className="font-semibold text-[#1A2530] mt-6 mb-2">
-          {line.replace(/\*\*/g, '')}
-        </p>
-      );
     } else if (line.trim() === '') {
       elements.push(<div key={key++} className="mb-2" />);
     } else {
       elements.push(
         <p key={key++} className="text-[#4A5568] leading-relaxed mb-4">
-          {line}
+          {parseInline(line)}
         </p>
       );
     }
