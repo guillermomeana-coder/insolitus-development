@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
 import { projects, Project } from '@/data/projects';
 import { Locale } from '@/lib/i18n';
 import ProjectGallery from './ProjectGallery';
@@ -33,8 +32,6 @@ const staggerContainer: Variants = {
 
 const ProjectCard = ({
   project,
-  locale,
-  viewProjectText,
   isLarge = false,
   onOpenGallery,
 }: {
@@ -57,17 +54,17 @@ const ProjectCard = ({
   return (
     <motion.div
       variants={fadeInUp}
-      className={`group cursor-pointer ${isLarge ? 'md:col-span-2 lg:row-span-2' : ''}`}
+      className={}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onOpenGallery}
     >
       <div
-        className={`relative overflow-hidden bg-[#1A2530] ${isLarge ? 'h-full min-h-[400px] lg:min-h-full' : 'h-[280px]'}`}
+        className={}
         style={{
           transform: isHovered
-            ? `perspective(1000px) rotateY(${(mousePosition.x - 0.5) * 5}deg) rotateX(${(mousePosition.y - 0.5) * -5}deg)`
+            ? 
             : 'perspective(1000px) rotateY(0deg) rotateX(0deg)',
           transition: 'transform 0.3s ease-out',
         }}
@@ -75,7 +72,7 @@ const ProjectCard = ({
         <div
           className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.15) 0%, transparent 50%)`,
+            background: ,
           }}
         />
 
@@ -97,28 +94,10 @@ const ProjectCard = ({
           }}
         />
 
-        <div className={`absolute bottom-0 left-0 right-0 ${isLarge ? 'p-8' : 'p-6'} transform transition-transform duration-500 group-hover:translate-y-[-8px]`}>
-          <h3 className={`font-heading ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl'} text-white mb-2 transition-all duration-300 group-hover:text-[#EBE6DF]`}>
+        <div className={}>
+          <h3 className={}>
             {project.name}
           </h3>
-          <p className="text-[#EBE6DF]/70 text-sm mb-4 transition-colors duration-300 group-hover:text-[#EBE6DF]/90">
-            {locale === 'es' ? project.description_es : project.description_en}
-          </p>
-          {project.externalLink && (
-            <a
-              href={project.externalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-[#A14A32] hover:text-[#EBE6DF] transition-all duration-300 group-hover:gap-3"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <span className="relative">
-                {viewProjectText}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full" />
-              </span>
-              <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-          )}
         </div>
       </div>
     </motion.div>
