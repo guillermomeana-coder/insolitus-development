@@ -51,27 +51,25 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
 
   const switchLocale = (newLocale: Locale) => {
     localStorage.setItem('preferred-locale', newLocale);
-    window.location.href = `/${newLocale}`;
+    window.location.href = ;
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        showTransparent
-          ? 'bg-transparent'
-          : 'bg-[#F6F6F6]/95 backdrop-blur-md border-b border-[#D9D4CC]/50'
-      }`}
+      className={}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <Link href={`/${locale}`} className="transition-opacity hover:opacity-80">
+          <Link href={} className="flex items-center gap-3 transition-opacity hover:opacity-80">
             <img
               src="/insolitus-logo.svg"
               alt="Insolitus Development"
-              className={`h-12 md:h-14 w-auto transition-all duration-300 ${
-                showTransparent ? 'brightness-0 invert' : ''
-              }`}
+              className={}
             />
+            <div className="hidden md:flex flex-col leading-none">
+              <span className={}>Insolitus</span>
+              <span className={}>Development</span>
+            </div>
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
@@ -80,11 +78,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-sm tracking-wide transition-colors duration-200 ${
-                  showTransparent
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-[#7A7369] hover:text-[#1A2530]'
-                }`}
+                className={}
               >
                 {link.label}
               </a>
@@ -93,44 +87,24 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
 
           <div className="flex items-center gap-4">
             <div
-              className={`flex items-center rounded overflow-hidden text-sm ${
-                showTransparent ? 'border border-white/30' : 'border border-[#D9D4CC]'
-              }`}
+              className={}
             >
               <button
                 onClick={() => switchLocale('en')}
-                className={`px-3 py-1.5 font-medium transition-all duration-200 ${
-                  locale === 'en'
-                    ? showTransparent
-                      ? 'bg-white text-[#1A2530]'
-                      : 'bg-[#1A2530] text-white'
-                    : showTransparent
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-[#7A7369] hover:text-[#1A2530]'
-                }`}
+                className={}
               >
                 EN
               </button>
               <button
                 onClick={() => switchLocale('es')}
-                className={`px-3 py-1.5 font-medium transition-all duration-200 ${
-                  locale === 'es'
-                    ? showTransparent
-                      ? 'bg-white text-[#1A2530]'
-                      : 'bg-[#1A2530] text-white'
-                    : showTransparent
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-[#7A7369] hover:text-[#1A2530]'
-                }`}
+                className={}
               >
                 ES
               </button>
             </div>
 
             <button
-              className={`lg:hidden p-2 transition-colors ${
-                showTransparent ? 'text-white' : 'text-[#1A2530]'
-              }`}
+              className={}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -140,9 +114,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
       </div>
 
       <div
-        className={`lg:hidden fixed left-0 right-0 bg-[#F6F6F6] border-b border-[#D9D4CC] transition-all duration-300 ease-out ${
-          mobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
-        }`}
+        className={}
         style={{ top: '80px' }}
       >
         <div className="flex flex-col p-6">
