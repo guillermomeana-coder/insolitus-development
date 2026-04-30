@@ -7,6 +7,7 @@ import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Services from '@/components/Services';
 import Partners from '@/components/Partners';
+import BlogPreview from '@/components/BlogPreview';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
@@ -64,6 +65,7 @@ export default async function LocalePage({ params }: PageProps) {
         <Projects locale={validLocale} dictionary={dictionary} />
         <Services dictionary={dictionary} />
         <Partners dictionary={dictionary} />
+        <BlogPreview locale={validLocale} dictionary={dictionary} />
         <ContactForm locale={validLocale} dictionary={dictionary} />
       </main>
       <Footer locale={validLocale} dictionary={dictionary} />
