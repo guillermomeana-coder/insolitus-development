@@ -42,12 +42,18 @@ export default function Footer({ locale, dictionary }: FooterProps) {
     <footer className="bg-[#1A2530] text-white py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-          <div className="flex items-center gap-3">
-            <img
-              src="/insolitus-logo.svg"
-              alt="Insolitus Development"
-              className="h-10 w-auto brightness-0 invert"
-            />
+          <div className="flex flex-col items-start gap-2">
+            <div className="flex items-center gap-4">
+              <img
+                src="/insolitus-logo.svg"
+                alt="Insolitus Development"
+                className="h-16 w-auto brightness-0 invert opacity-90"
+              />
+              <div>
+                <p className="font-heading text-white text-xl tracking-widest uppercase">Insolitus</p>
+                <p className="font-accent text-[#A14A32] text-xs tracking-[0.3em] uppercase">Development</p>
+              </div>
+            </div>
           </div>
 
           <nav className="flex flex-wrap gap-8">
