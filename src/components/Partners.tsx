@@ -36,22 +36,19 @@ const staggerContainer: Variants = {
 
 const partners = [
   {
-    key: 'alonso',
-    roleKey: 'construction',
-    image: '/images/logos/ginax.png',
-    isLogo: true,
+    key: 'rodrigo',
+    roleKey: 'visionary',
+    image: '/images/team/rodrigo-caldeira.jpeg',
   },
   {
     key: 'manu',
     roleKey: 'design',
     image: '/images/team/maria-ponte.jpeg',
-    isLogo: false,
   },
   {
-    key: 'rodrigo',
-    roleKey: 'visionary',
-    image: '/images/team/rodrigo-caldeira.jpeg',
-    isLogo: false,
+    key: 'alonso',
+    roleKey: 'construction',
+    image: '/images/team/alonso-ramirez.jpeg',
   },
 ] as const;
 
@@ -81,17 +78,13 @@ export default function Partners({ dictionary }: PartnersProps) {
           variants={staggerContainer}
           className="grid md:grid-cols-3 gap-8"
         >
-          {partners.map(({ key, roleKey, image, isLogo }) => (
+          {partners.map(({ key, roleKey, image }) => (
             <motion.div key={key} variants={fadeInUp} className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full bg-[#2D3A47] flex items-center justify-center">
+              <div className="w-36 h-36 mx-auto mb-6 overflow-hidden rounded-full bg-[#2D3A47] flex items-center justify-center">
                 <img
                   src={image}
                   alt={dictionary.partners.team[key].name}
-                  className={
-                    isLogo
-                      ? "w-20 h-auto object-contain"
-                      : "w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
-                  }
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
               <p className="font-accent text-[#A14A32] text-sm tracking-wider uppercase mb-2">
