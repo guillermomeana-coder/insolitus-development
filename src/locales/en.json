@@ -24,13 +24,22 @@
     "viewProject": "View Project"
   },
   "services": {
-    "headline": "Services",
+    "headline": "What We Do",
+    "learnMore": "Learn More",
+    "close": "Close",
     "items": {
       "design": "Design Management",
       "project": "Project Management",
       "construction": "Construction Management",
       "renovations": "Renovations",
-      "permits": "Re-Zoning, Permitting, Licensing & Ecological Impact Approvals"
+      "permits": "Re-Zoning, Permitting & Ecological Approvals"
+    },
+    "details": {
+      "design": "We oversee every stage of the design process — from initial concept and schematic design through construction documents and field administration. Our integrated approach ensures the architectural vision remains intact from the first sketch to the final finish, with María Manuel Ponte and Symbiotic Architecture leading design excellence on every project.",
+      "project": "Our project management team coordinates all disciplines, timelines, budgets, and stakeholders from a single point of accountability. We eliminate the communication gaps that typically arise when independent firms try to align around a shared vision. You get one team, one point of contact, and full transparency throughout the life of your project.",
+      "construction": "Led by Alonso Ramírez and Ginax — with 20+ years of track record in Los Cabos and Puerto Vallarta — our construction capability is built around in-house labor, owned equipment, and deep relationships with the best subcontractors in Baja California Sur. We have delivered for Four Seasons, One & Only, Rosewood, St. Regis, and Waldorf Astoria.",
+      "renovations": "We transform existing properties into extraordinary spaces. Whether a branded residence refresh, a boutique hotel renovation, or a private residence reimagined, our team brings the same obsessive attention to detail to renovation projects as to ground-up development — with the added expertise of working within existing structures.",
+      "permits": "Navigating the regulatory landscape in Baja California Sur requires deep local knowledge and established relationships. Our team manages re-zoning applications, construction permits, operating licenses, and ecological impact approvals — turning a typically slow and opaque process into a managed, transparent workflow."
     }
   },
   "partners": {
@@ -57,6 +66,15 @@
         "bio": "Born in Rio de Janeiro, raised in Porto, Portugal. Alumni of École Hôtelière de Lausanne, Switzerland. A results-driven leader with a talent for building high-performance teams. His unique combination of luxury resort experience and real estate development is an unfair competitive advantage. Finance-savvy and adept at trend analysis to adapt proactively to market demands."
       }
     }
+  },
+  "blog": {
+    "headline": "Insights",
+    "subtitle": "Perspectives on Luxury Development in Los Cabos",
+    "readMore": "Read More",
+    "allPosts": "All Posts",
+    "minRead": "min read",
+    "related": "More Insights",
+    "by": "By"
   },
   "contact": {
     "headline": "Contact",
