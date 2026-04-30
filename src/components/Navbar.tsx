@@ -13,6 +13,7 @@ interface NavbarProps {
       projects: string;
       services: string;
       partners: string;
+      blog: string;
       contact: string;
     };
   };
@@ -28,12 +29,11 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const anchorLinks = [
     { href: '#about', label: dictionary.nav.about },
     { href: '#projects', label: dictionary.nav.projects },
     { href: '#services', label: dictionary.nav.services },
     { href: '#partners', label: dictionary.nav.partners },
-    { href: '#contact', label: dictionary.nav.contact },
   ];
 
   const showTransparent = !scrolled && !mobileMenuOpen;
@@ -83,7 +83,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
+            {anchorLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -97,6 +97,27 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
                 {link.label}
               </a>
             ))}
+            <Link
+              href={`/${locale}/blog`}
+              className={`text-sm tracking-wide transition-colors duration-200 ${
+                showTransparent
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-[#7A7369] hover:text-[#1A2530]'
+              }`}
+            >
+              {dictionary.nav.blog}
+            </Link>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className={`text-sm tracking-wide transition-colors duration-200 ${
+                showTransparent
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-[#7A7369] hover:text-[#1A2530]'
+              }`}
+            >
+              {dictionary.nav.contact}
+            </a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -154,7 +175,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
         style={{ top: '80px' }}
       >
         <div className="flex flex-col p-6">
-          {navLinks.map((link) => (
+          {anchorLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -164,6 +185,20 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
               {link.label}
             </a>
           ))}
+          <Link
+            href={`/${locale}/blog`}
+            onClick={() => setMobileMenuOpen(false)}
+            className="py-4 text-lg text-[#1A2530] border-b border-[#D9D4CC]/50 transition-colors hover:text-[#A14A32]"
+          >
+            {dictionary.nav.blog}
+          </Link>
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className="py-4 text-lg text-[#1A2530] transition-colors hover:text-[#A14A32]"
+          >
+            {dictionary.nav.contact}
+          </a>
         </div>
       </div>
     </nav>
