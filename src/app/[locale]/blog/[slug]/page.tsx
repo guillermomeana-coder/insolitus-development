@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -29,9 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${validLocale === 'es' ? post.title_es : post.title_en} — Insolitus Development`,
     description: validLocale === 'es' ? post.excerpt_es : post.excerpt_en,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/blog/${slug}`,
-    },
+    alternates: { canonical: `${baseUrl}/${locale}/blog/${slug}` },
     openGraph: {
       title: validLocale === 'es' ? post.title_es : post.title_en,
       description: validLocale === 'es' ? post.excerpt_es : post.excerpt_en,
@@ -43,9 +42,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-function renderContent(content: string) {
+function renderContent(content: string): ReactNode[] {
   const lines = content.split('\n');
-  const elements: React.ReactNode[] = [];
+  const elements: ReactNode[] = [];
   let key = 0;
 
   for (const line of lines) {
@@ -57,7 +56,7 @@ function renderContent(content: string) {
       );
     } else if (line.startsWith('**') && line.endsWith('**')) {
       elements.push(
-        <p key={key++} className="font-medium text-[#1A2530] mt-6 mb-2">
+        <p key={key++} className="font-semibold text-[#1A2530] mt-6 mb-2">
           {line.replace(/\*\*/g, '')}
         </p>
       );
@@ -89,9 +88,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString(validLocale === 'es' ? 'es-MX' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      year: 'numeric', month: 'long', day: 'numeric',
     });
 
   const otherPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 2);
@@ -100,40 +97,29 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <Navbar locale={validLocale} dictionary={dictionary} />
       <main className="bg-[#F6F6F6] min-h-screen">
-        {/* Hero image */}
         <div className="relative h-72 md:h-96 overflow-hidden">
           <img src={post.image} alt={title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530] via-[#1A2530]/50 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 max-w-3xl mx-auto px-6 pb-10">
             <div className="flex items-center gap-4 mb-4">
               {post.tags.slice(0, 2).map((tag) => (
-                <span key={tag} className="text-[#A14A32] text-xs font-accent tracking-wider uppercase">
-                  {tag}
-                </span>
+                <span key={tag} className="text-[#A14A32] text-xs font-accent tracking-wider uppercase">{tag}</span>
               ))}
             </div>
-            <h1 className="font-heading text-3xl md:text-4xl text-white font-medium leading-snug">
-              {title}
-            </h1>
+            <h1 className="font-heading text-3xl md:text-4xl text-white font-medium leading-snug">{title}</h1>
           </div>
         </div>
 
-        {/* Article */}
         <div className="max-w-3xl mx-auto px-6 py-12">
-          {/* Meta */}
           <div className="flex items-center gap-6 mb-10 pb-8 border-b border-[#D9D4CC]">
             <div>
               <p className="text-[#1A2530] text-sm font-medium">{post.author}</p>
-              <p className="text-[#7A7369] text-xs">{formatDate(post.date)} · {post.readTime} {dictionary.blog.minRead}</p>
+              <p className="text-[#7A7369] text-xs">{formatDate(post.date)} · {post.readTime} {(dictionary as any).blog.minRead}</p>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="prose-custom">
-            {renderContent(content)}
-          </div>
+          <div>{renderContent(content)}</div>
 
-          {/* Back */}
           <div className="mt-16 pt-8 border-t border-[#D9D4CC]">
             <Link
               href={`/${validLocale}/blog`}
@@ -142,17 +128,16 @@ export default async function BlogPostPage({ params }: PageProps) {
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M13 7H1M7 1L1 7l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              {dictionary.blog.allPosts}
+              {(dictionary as any).blog.allPosts}
             </Link>
           </div>
         </div>
 
-        {/* Related posts */}
         {otherPosts.length > 0 && (
           <div className="bg-[#1A2530] py-16">
             <div className="max-w-6xl mx-auto px-6">
               <p className="font-accent text-[#A14A32] text-sm tracking-[0.2em] uppercase mb-8">
-                {dictionary.blog.related}
+                {(dictionary as any).blog.related}
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 {otherPosts.map((p) => (
@@ -168,7 +153,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       <h3 className="font-heading text-base text-white group-hover:text-[#EBE6DF] transition-colors leading-snug">
                         {validLocale === 'es' ? p.title_es : p.title_en}
                       </h3>
-                      <p className="text-[#EBE6DF]/50 text-xs mt-1">{p.readTime} {dictionary.blog.minRead}</p>
+                      <p className="text-[#EBE6DF]/50 text-xs mt-1">{p.readTime} {(dictionary as any).blog.minRead}</p>
                     </div>
                   </Link>
                 ))}
