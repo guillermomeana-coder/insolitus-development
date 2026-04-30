@@ -24,13 +24,22 @@
     "viewProject": "Ver Proyecto"
   },
   "services": {
-    "headline": "Servicios",
+    "headline": "Lo Que Hacemos",
+    "learnMore": "Saber Más",
+    "close": "Cerrar",
     "items": {
       "design": "Gestión de Diseño",
       "project": "Gestión de Proyectos",
       "construction": "Gestión de Construcción",
       "renovations": "Renovaciones",
-      "permits": "Rezonificación, Permisos, Licencias y Aprobaciones de Impacto Ecológico"
+      "permits": "Rezonificación, Permisos y Aprobaciones Ecológicas"
+    },
+    "details": {
+      "design": "Supervisamos cada etapa del proceso de diseño — desde el concepto inicial y el diseño esquemático hasta los documentos de construcción y la administración en campo. Nuestro enfoque integrado garantiza que la visión arquitectónica se mantenga intacta desde el primer boceto hasta el acabado final, con María Manuel Ponte y Symbiotic Architecture liderando la excelencia en diseño en cada proyecto.",
+      "project": "Nuestro equipo de gestión de proyectos coordina todas las disciplinas, plazos, presupuestos y partes interesadas desde un único punto de responsabilidad. Eliminamos las brechas de comunicación que surgen cuando firmas independientes intentan alinearse en torno a una visión compartida. Obtienes un equipo, un punto de contacto y total transparencia durante toda la vida de tu proyecto.",
+      "construction": "Liderada por Alonso Ramírez y Ginax — con más de 20 años de trayectoria en Los Cabos y Puerto Vallarta — nuestra capacidad constructiva está construida alrededor de mano de obra propia, equipo en propiedad y relaciones sólidas con los mejores subcontratistas de Baja California Sur. Hemos construido para Four Seasons, One & Only, Rosewood, St. Regis y Waldorf Astoria.",
+      "renovations": "Transformamos propiedades existentes en espacios extraordinarios. Ya sea una renovación de residencia de marca, un hotel boutique reimaginado o una residencia privada transformada, nuestro equipo aporta la misma atención obsesiva al detalle en proyectos de renovación que en desarrollos desde cero.",
+      "permits": "Navegar el panorama regulatorio en Baja California Sur requiere conocimiento local profundo y relaciones establecidas. Nuestro equipo gestiona solicitudes de rezonificación, permisos de construcción, licencias de operación y aprobaciones de impacto ecológico — convirtiendo un proceso típicamente lento y opaco en un flujo de trabajo gestionado y transparente."
     }
   },
   "partners": {
@@ -57,6 +66,15 @@
         "bio": "Nacido en Río de Janeiro, criado en Porto, Portugal. Egresado de la École Hôtelière de Lausanne, Suiza. Un líder orientado a resultados con talento para construir equipos de alto rendimiento. Su combinación única de experiencia en resorts de lujo y desarrollo inmobiliario se traduce en una ventaja competitiva inigualable. Con visión financiera y habilidad para analizar tendencias y adaptarse proactivamente a las demandas del mercado."
       }
     }
+  },
+  "blog": {
+    "headline": "Perspectivas",
+    "subtitle": "Análisis sobre Desarrollo de Lujo en Los Cabos",
+    "readMore": "Leer Más",
+    "allPosts": "Ver Todos",
+    "minRead": "min de lectura",
+    "related": "Más Artículos",
+    "by": "Por"
   },
   "contact": {
     "headline": "Contacto",
