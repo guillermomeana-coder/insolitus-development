@@ -61,8 +61,8 @@ export const projects: Project[] = [
     id: 4,
     name: "El Cielo",
     slug: "el-cielo",
-    description_en: "Private Residence",
-    description_es: "Residencia Privada",
+    description_en: "Retaining Walls",
+    description_es: "Muros de Contención",
     image: "/images/projects/el-cielo.jpg",
     gallery: [
       "/images/projects/el-cielo.jpg",
