@@ -39,16 +39,19 @@ const partners = [
     key: 'rodrigo',
     roleKey: 'visionary',
     image: '/images/team/rodrigo-caldeira.jpeg',
+    position: 'center 20%',
   },
   {
     key: 'manu',
     roleKey: 'design',
     image: '/images/team/maria-ponte.jpeg',
+    position: 'center 15%',
   },
   {
     key: 'alonso',
     roleKey: 'construction',
     image: '/images/team/alonso-ramirez.jpeg',
+    position: 'center 5%',
   },
 ] as const;
 
@@ -78,13 +81,14 @@ export default function Partners({ dictionary }: PartnersProps) {
           variants={staggerContainer}
           className="grid md:grid-cols-3 gap-8"
         >
-          {partners.map(({ key, roleKey, image }) => (
+          {partners.map(({ key, roleKey, image, position }) => (
             <motion.div key={key} variants={fadeInUp} className="text-center">
-              <div className="w-36 h-36 mx-auto mb-6 overflow-hidden rounded-full bg-[#2D3A47] flex items-center justify-center">
+              <div className="w-36 h-36 mx-auto mb-6 overflow-hidden rounded-full bg-[#2D3A47]">
                 <img
                   src={image}
                   alt={dictionary.partners.team[key].name}
-                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  style={{ objectPosition: position }}
                 />
               </div>
               <p className="font-accent text-[#A14A32] text-sm tracking-wider uppercase mb-2">
