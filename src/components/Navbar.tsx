@@ -51,7 +51,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
 
   const switchLocale = (newLocale: Locale) => {
     localStorage.setItem('preferred-locale', newLocale);
-    window.location.href = ;
+    window.location.href = '/' + newLocale;
   };
 
   return (
@@ -60,7 +60,7 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          <Link href={} className="flex items-center gap-3 transition-opacity hover:opacity-80">
+          <Link href={'/' + locale} className="flex items-center gap-3 transition-opacity hover:opacity-80">
             <img
               src="/insolitus-logo.svg"
               alt="Insolitus Development"
@@ -86,21 +86,15 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
           </div>
 
           <div className="flex items-center gap-4">
-            <div
-              className={}
-            >
+            <div className={}>
               <button
                 onClick={() => switchLocale('en')}
                 className={}
-              >
-                EN
-              </button>
+              >EN</button>
               <button
                 onClick={() => switchLocale('es')}
                 className={}
-              >
-                ES
-              </button>
+              >ES</button>
             </div>
 
             <button
