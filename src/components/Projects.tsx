@@ -46,56 +46,63 @@ const ProjectCard = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setMousePosition({ x, y });
+    setMousePosition({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
   };
+
+  const cardClass = isLarge
+    ? 'md:col-span-2 lg:row-span-2'
+    : '';
+
+  const innerClass = isLarge
+    ? 'h-full min-h-[400px] lg:min-h-full'
+    : 'h-[280px]';
+
+  const transform = isHovered
+    ? `perspective(1000px) rotateY(${(mousePosition.x - 0.5) * 5}deg) rotateX(${(mousePosition.y - 0.5) * -5}deg)`
+    : 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+
+  const gradientBg = `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.15) 0%, transparent 50%)`;
+
+  const bottomPad = isLarge ? 'p-8' : 'p-6';
+  const titleSize = isLarge ? 'text-2xl md:text-3xl' : 'text-xl';
 
   return (
     <motion.div
       variants={fadeInUp}
-      className={}
+      className={`group cursor-pointer ${cardClass}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onOpenGallery}
     >
       <div
-        className={}
-        style={{
-          transform: isHovered
-            ? 
-            : 'perspective(1000px) rotateY(0deg) rotateX(0deg)',
-          transition: 'transform 0.3s ease-out',
-        }}
+        className={`relative overflow-hidden bg-[#1A2530] ${innerClass}`}
+        style={{ transform, transition: 'transform 0.3s ease-out' }}
       >
         <div
           className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: ,
-          }}
+          style={{ background: gradientBg }}
         />
 
         <img
           src={project.image}
           alt={project.name}
           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-          style={{
-            filter: isHovered ? 'brightness(1.1) saturate(1.1)' : 'brightness(0.9)',
-          }}
+          style={{ filter: isHovered ? 'brightness(1.1) saturate(1.1)' : 'brightness(0.9)' }}
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A2530] via-[#1A2530]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            boxShadow: 'inset 0 0 30px rgba(161, 74, 50, 0.3)',
-          }}
+          style={{ boxShadow: 'inset 0 0 30px rgba(161, 74, 50, 0.3)' }}
         />
 
-        <div className={}>
-          <h3 className={}>
+        <div className={`absolute bottom-0 left-0 right-0 ${bottomPad} transform transition-transform duration-500 group-hover:translate-y-[-8px]`}>
+          <h3 className={`font-heading ${titleSize} text-white transition-all duration-300 group-hover:text-[#EBE6DF]`}>
             {project.name}
           </h3>
         </div>
@@ -138,7 +145,6 @@ export default function Projects({ locale, dictionary }: ProjectsProps) {
               isLarge={true}
               onOpenGallery={() => projects[0].gallery.length > 0 && setGalleryProject(projects[0])}
             />
-
             {projects.slice(1).map((project) => (
               <ProjectCard
                 key={project.id}
