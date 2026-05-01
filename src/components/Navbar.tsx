@@ -29,25 +29,16 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const anchorLinks = [
-    { href: '#about', label: dictionary.nav.about },
-    { href: '#projects', label: dictionary.nav.projects },
-    { href: '#services', label: dictionary.nav.services },
-    { href: '#partners', label: dictionary.nav.partners },
+  const navLinks = [
+    { href: `/${locale}#about`, label: dictionary.nav.about },
+    { href: `/${locale}#projects`, label: dictionary.nav.projects },
+    { href: `/${locale}#services`, label: dictionary.nav.services },
+    { href: `/${locale}#partners`, label: dictionary.nav.partners },
+    { href: `/${locale}/blog`, label: dictionary.nav.blog },
+    { href: `/${locale}#contact`, label: dictionary.nav.contact },
   ];
 
   const showTransparent = !scrolled && !mobileMenuOpen;
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-      setMobileMenuOpen(false);
-    }
-  };
 
   const switchLocale = (newLocale: Locale) => {
     localStorage.setItem('preferred-locale', newLocale);
@@ -83,11 +74,10 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
-            {anchorLinks.map((link) => (
-              <a
+            {navLinks.map((link) => (
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
                 className={`text-sm tracking-wide transition-colors duration-200 ${
                   showTransparent
                     ? 'text-white/80 hover:text-white'
@@ -95,29 +85,8 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <Link
-              href={`/${locale}/blog`}
-              className={`text-sm tracking-wide transition-colors duration-200 ${
-                showTransparent
-                  ? 'text-white/80 hover:text-white'
-                  : 'text-[#7A7369] hover:text-[#1A2530]'
-              }`}
-            >
-              {dictionary.nav.blog}
-            </Link>
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className={`text-sm tracking-wide transition-colors duration-200 ${
-                showTransparent
-                  ? 'text-white/80 hover:text-white'
-                  : 'text-[#7A7369] hover:text-[#1A2530]'
-              }`}
-            >
-              {dictionary.nav.contact}
-            </a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -130,12 +99,8 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
                 onClick={() => switchLocale('en')}
                 className={`px-3 py-1.5 font-medium transition-all duration-200 ${
                   locale === 'en'
-                    ? showTransparent
-                      ? 'bg-white text-[#1A2530]'
-                      : 'bg-[#1A2530] text-white'
-                    : showTransparent
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-[#7A7369] hover:text-[#1A2530]'
+                    ? showTransparent ? 'bg-white text-[#1A2530]' : 'bg-[#1A2530] text-white'
+                    : showTransparent ? 'text-white/80 hover:text-white' : 'text-[#7A7369] hover:text-[#1A2530]'
                 }`}
               >
                 EN
@@ -144,12 +109,8 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
                 onClick={() => switchLocale('es')}
                 className={`px-3 py-1.5 font-medium transition-all duration-200 ${
                   locale === 'es'
-                    ? showTransparent
-                      ? 'bg-white text-[#1A2530]'
-                      : 'bg-[#1A2530] text-white'
-                    : showTransparent
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-[#7A7369] hover:text-[#1A2530]'
+                    ? showTransparent ? 'bg-white text-[#1A2530]' : 'bg-[#1A2530] text-white'
+                    : showTransparent ? 'text-white/80 hover:text-white' : 'text-[#7A7369] hover:text-[#1A2530]'
                 }`}
               >
                 ES
@@ -175,30 +136,16 @@ export default function Navbar({ locale, dictionary }: NavbarProps) {
         style={{ top: '80px' }}
       >
         <div className="flex flex-col p-6">
-          {anchorLinks.map((link) => (
-            <a
+          {navLinks.map((link) => (
+            <Link
               key={link.href}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="py-4 text-lg text-[#1A2530] border-b border-[#D9D4CC]/50 transition-colors hover:text-[#A14A32]"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-4 text-lg text-[#1A2530] border-b border-[#D9D4CC]/50 last:border-0 transition-colors hover:text-[#A14A32]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <Link
-            href={`/${locale}/blog`}
-            onClick={() => setMobileMenuOpen(false)}
-            className="py-4 text-lg text-[#1A2530] border-b border-[#D9D4CC]/50 transition-colors hover:text-[#A14A32]"
-          >
-            {dictionary.nav.blog}
-          </Link>
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className="py-4 text-lg text-[#1A2530] transition-colors hover:text-[#A14A32]"
-          >
-            {dictionary.nav.contact}
-          </a>
         </div>
       </div>
     </nav>
