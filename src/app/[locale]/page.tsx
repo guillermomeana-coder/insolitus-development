@@ -10,6 +10,7 @@ import Partners from '@/components/Partners';
 import BlogPreview from '@/components/BlogPreview';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -69,6 +70,7 @@ export default async function LocalePage({ params }: PageProps) {
         <ContactForm locale={validLocale} dictionary={dictionary} />
       </main>
       <Footer locale={validLocale} dictionary={dictionary} />
+      <WhatsAppButton locale={validLocale} />
     </>
   );
 }
