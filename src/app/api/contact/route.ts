@@ -23,7 +23,7 @@ function isValidEmail(email: string): boolean {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message, language, honeypot } = body;
+    const { name, email, phone, country, message, language, honeypot } = body;
 
     if (honeypot) {
       return NextResponse.json({ success: true });
@@ -53,6 +53,8 @@ export async function POST(request: NextRequest) {
     const sanitizedContact = {
       name: sanitize(name),
       email: sanitize(email),
+      phone: phone ? sanitize(phone) : '',
+      country: country ? sanitize(country) : '',
       message: sanitize(message),
       language: language === 'es' ? 'es' : 'en',
       createdAt: new Date(),
@@ -79,7 +81,7 @@ export async function POST(request: NextRequest) {
       try {
         const { data, error } = await resend.emails.send({
           from: 'Insolitus Website <onboarding@resend.dev>',
-          to: [CONTACT_EMAIL, 'rodrigocaldeira7@gmail.com'],
+          to: [CONTACT_EMAIL],
           subject: `New Contact: ${sanitize(name)}`,
           html: `
             <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
@@ -97,6 +99,14 @@ export async function POST(request: NextRequest) {
                   <td style="padding: 12px 0; color: #1A2530; font-size: 14px;">
                     <a href="mailto:${sanitize(email)}" style="color: #A14A32;">${sanitize(email)}</a>
                   </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; color: #7A7369; font-size: 14px;">Phone</td>
+                  <td style="padding: 12px 0; color: #1A2530; font-size: 14px;">${phone ? sanitize(phone) : '—'}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; color: #7A7369; font-size: 14px;">Country</td>
+                  <td style="padding: 12px 0; color: #1A2530; font-size: 14px;">${country ? sanitize(country) : '—'}</td>
                 </tr>
                 <tr>
                   <td style="padding: 12px 0; color: #7A7369; font-size: 14px;">Language</td>
