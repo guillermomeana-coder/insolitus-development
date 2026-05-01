@@ -80,8 +80,8 @@ export async function POST(request: NextRequest) {
     } else {
       try {
         const { data, error } = await resend.emails.send({
-          from: 'Insolitus Website <onboarding@resend.dev>',
-          to: [CONTACT_EMAIL],
+          from: 'Insolitus Development <noreply@insolitusdevelopment.com>',
+          to: [CONTACT_EMAIL, 'rodrigocaldeira7@gmail.com'],
           subject: `New Contact: ${sanitize(name)}`,
           html: `
             <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
