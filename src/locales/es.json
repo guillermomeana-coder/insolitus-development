@@ -84,7 +84,9 @@
       "email": "Correo",
       "message": "Mensaje",
       "send": "Enviar",
-      "sending": "Enviando..."
+      "sending": "Enviando...",
+      "phone": "Teléfono",
+      "country": "País"
     },
     "success": "Â¡Mensaje enviado con Ã©xito! Nos pondremos en contacto pronto.",
     "error": "Error al enviar el mensaje. Por favor intenta de nuevo."
