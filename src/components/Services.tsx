@@ -125,7 +125,7 @@ export default function Services({ dictionary }: ServicesProps) {
                 <h3 className="font-heading text-xl text-white font-medium leading-snug mb-3">
                   {dictionary.services.items[key]}
                 </h3>
-                <span className="inline-flex items-center gap-2 text-[#A14A32] text-sm font-accent tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <span className="inline-flex items-center gap-2 text-white text-sm font-accent tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
                   {dictionary.services.learnMore}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
