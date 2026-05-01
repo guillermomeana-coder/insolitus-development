@@ -70,9 +70,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email notification
-    if (resend) {
+    let emailResult: { success: boolean; error?: string } = { success: false };
+
+    if (!resend) {
+      console.error('RESEND_API_KEY not configured');
+      emailResult = { success: false, error: 'RESEND_API_KEY not configured' };
+    } else {
       try {
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: 'Insolitus Website <onboarding@resend.dev>',
           to: [CONTACT_EMAIL, 'rodrigocaldeira7@gmail.com'],
           subject: `New Contact: ${sanitize(name)}`,
@@ -80,7 +85,7 @@ export async function POST(request: NextRequest) {
             <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
               <div style="border-bottom: 2px solid #A14A32; padding-bottom: 20px; margin-bottom: 30px;">
                 <h1 style="color: #1A2530; font-size: 24px; margin: 0;">New Contact Form Submission</h1>
-                <p style="color: #7A7369; font-size: 14px; margin-top: 8px;">insolitusdev.com</p>
+                <p style="color: #7A7369; font-size: 14px; margin-top: 8px;">insolitusdevelopment.com</p>
               </div>
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
@@ -105,12 +110,25 @@ export async function POST(request: NextRequest) {
             </div>
           `,
         });
-      } catch (emailError) {
-        console.error('Email send error:', emailError);
+
+        if (error) {
+          console.error('Resend error:', JSON.stringify(error));
+          emailResult = { success: false, error: `Resend: ${error.message}` };
+        } else {
+          console.log('Email sent OK, id:', data?.id);
+          emailResult = { success: true };
+        }
+      } catch (emailError: any) {
+        console.error('Email send exception:', emailError?.message || emailError);
+        emailResult = { success: false, error: emailError?.message || 'unknown email error' };
       }
     }
 
-    return NextResponse.json({ success: true, saved: dbSaved });
+    return NextResponse.json({
+      success: true,
+      saved: dbSaved,
+      email: emailResult,
+    });
   } catch (error) {
     console.error('Contact API error:', error);
     return NextResponse.json(
