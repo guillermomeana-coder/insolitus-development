@@ -84,7 +84,9 @@
       "email": "Email",
       "message": "Message",
       "send": "Send",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      "phone": "Phone",
+      "country": "Country"
     },
     "success": "Message sent successfully! We'll be in touch soon.",
     "error": "Failed to send message. Please try again."
