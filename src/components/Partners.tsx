@@ -51,7 +51,7 @@ const partners = [
     key: 'alonso',
     roleKey: 'construction',
     image: '/images/team/alonso-ramirez.jpeg',
-    position: 'center 5%',
+    position: 'center top',
   },
 ] as const;
 
