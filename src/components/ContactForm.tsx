@@ -15,6 +15,8 @@ interface ContactFormProps {
       form: {
         name: string;
         email: string;
+        phone: string;
+        country: string;
         message: string;
         send: string;
         sending: string;
@@ -36,10 +38,20 @@ const contactInfo = {
   address: 'Blvd Mijares #717, Local 202, Plaza Aires, Centro SJC, B.C.S., CP 23400',
 };
 
+const countries = [
+  'United States', 'Mexico', 'Canada', 'United Kingdom', 'Germany', 'France',
+  'Spain', 'Italy', 'Netherlands', 'Switzerland', 'Australia', 'Japan',
+  'China', 'Brazil', 'Argentina', 'Colombia', 'Chile', 'Peru',
+  'United Arab Emirates', 'Saudi Arabia', 'Qatar', 'Israel', 'South Africa',
+  'Other',
+];
+
 export default function ContactForm({ locale, dictionary }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    country: '',
     message: '',
     honeypot: '',
   });
@@ -62,6 +74,8 @@ export default function ContactForm({ locale, dictionary }: ContactFormProps) {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
           message: formData.message,
           language: locale,
         }),
@@ -69,7 +83,7 @@ export default function ContactForm({ locale, dictionary }: ContactFormProps) {
 
       if (response.ok) {
         toast.success(dictionary.contact.success);
-        setFormData({ name: '', email: '', message: '', honeypot: '' });
+        setFormData({ name: '', email: '', phone: '', country: '', message: '', honeypot: '' });
       } else {
         toast.error(dictionary.contact.error);
       }
@@ -79,6 +93,8 @@ export default function ContactForm({ locale, dictionary }: ContactFormProps) {
       setIsSubmitting(false);
     }
   };
+
+  const inputClass = "w-full px-4 py-3 bg-white border border-[#D9D4CC] focus:border-[#A14A32] focus:ring-1 focus:ring-[#A14A32]/20 outline-none transition-colors";
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-[#F6F6F6]">
@@ -169,22 +185,53 @@ export default function ContactForm({ locale, dictionary }: ContactFormProps) {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   maxLength={100}
-                  className="w-full px-4 py-3 bg-white border border-[#D9D4CC] focus:border-[#A14A32] focus:ring-1 focus:ring-[#A14A32]/20 outline-none transition-colors"
+                  className={inputClass}
                 />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm text-[#7A7369] mb-2">
+                    {dictionary.contact.form.email}
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    maxLength={100}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-[#7A7369] mb-2">
+                    {dictionary.contact.form.phone}
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    maxLength={30}
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
               <div>
                 <label className="block text-sm text-[#7A7369] mb-2">
-                  {dictionary.contact.form.email}
+                  {dictionary.contact.form.country}
                 </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  maxLength={100}
-                  className="w-full px-4 py-3 bg-white border border-[#D9D4CC] focus:border-[#A14A32] focus:ring-1 focus:ring-[#A14A32]/20 outline-none transition-colors"
-                />
+                <select
+                  value={formData.country}
+                  onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                  className={`${inputClass} appearance-none cursor-pointer text-[#1A2530]`}
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237A7369' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
+                >
+                  <option value="">—</option>
+                  {countries.map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
               </div>
 
               <div>
@@ -195,9 +242,9 @@ export default function ContactForm({ locale, dictionary }: ContactFormProps) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
-                  rows={6}
+                  rows={5}
                   maxLength={5000}
-                  className="w-full px-4 py-3 bg-white border border-[#D9D4CC] focus:border-[#A14A32] focus:ring-1 focus:ring-[#A14A32]/20 outline-none transition-colors resize-none"
+                  className={`${inputClass} resize-none`}
                 />
               </div>
 
