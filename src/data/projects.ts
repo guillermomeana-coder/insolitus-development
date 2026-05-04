@@ -122,6 +122,9 @@ export const projects: Project[] = [
     image: "/images/projects/el-cielo.jpg",
     gallery: [
       "/images/projects/el-cielo.jpg",
+      "/images/projects/cielo-gallery/01.jpg",
+      "/images/projects/cielo-gallery/02.jpg",
+      "/images/projects/cielo-gallery/03.jpg",
     ],
     externalLink: null,
     order: 7,
