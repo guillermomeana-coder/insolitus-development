@@ -39,7 +39,7 @@ const partners = [
     key: 'rodrigo',
     roleKey: 'visionary',
     image: '/images/team/rodrigo-caldeira.jpeg',
-    position: 'center 35%',
+    position: 'center 45%',
   },
   {
     key: 'manu',
