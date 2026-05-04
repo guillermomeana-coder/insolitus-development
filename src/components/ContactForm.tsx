@@ -33,7 +33,7 @@ const fadeInUp: Variants = {
 };
 
 const contactInfo = {
-  phone: '+52 624 105 22 23',
+  phone: '+52 1 624 151 7461',
   email: 'insolitusdevelopment@gmail.com',
   address: 'Blvd Mijares #717, Local 202, Plaza Aires, Centro SJC, B.C.S., CP 23400',
 };

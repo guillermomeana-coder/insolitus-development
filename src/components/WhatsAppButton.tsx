@@ -2,7 +2,7 @@
 
 import { Locale } from '@/lib/i18n';
 
-const WA_NUMBER = '526241052223';
+const WA_NUMBER = '5216241517461';
 
 const messages: Record<Locale, string> = {
   en: "Hello! I'm interested in learning more about Insolitus Development and your projects in Los Cabos.",
