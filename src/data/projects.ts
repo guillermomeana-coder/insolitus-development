@@ -119,11 +119,10 @@ export const projects: Project[] = [
     slug: "el-cielo",
     description_en: "Retaining Walls",
     description_es: "Muros de Contención",
-    image: "/images/projects/el-cielo.jpg",
+    image: "/images/projects/cielo-gallery/02.jpg",
     gallery: [
-      "/images/projects/el-cielo.jpg",
-      "/images/projects/cielo-gallery/01.jpg",
       "/images/projects/cielo-gallery/02.jpg",
+      "/images/projects/cielo-gallery/01.jpg",
       "/images/projects/cielo-gallery/03.jpg",
     ],
     externalLink: null,
